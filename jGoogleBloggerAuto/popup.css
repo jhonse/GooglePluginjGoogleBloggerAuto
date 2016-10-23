@@ -1,0 +1,29 @@
+﻿*{
+	padding:0px;
+	margin:0px;
+}
+body {
+	width: 320px;
+	background-color:#eee;
+}
+table {
+	border-collapse:collapse;
+	font-size: 0.85em;
+}
+table,td {
+	border: 1px solid #aaa;
+}
+td{
+	padding: 10px;
+	text-overflow:ellipsis;
+}
+td.item-name{
+	text-align: right;
+}
+.content-div{
+	width:179px;
+	white-space:nowrap;
+	overflow-x:hidden;
+	text-overflow:ellipsis;
+	color:#ff0000;
+}
