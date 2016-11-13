@@ -37,12 +37,34 @@ function googleClick(){
 	});*/
 }
 /*google+加入*/
-function googleJoin(){
-	$("button[role=button] content span").each(function(){
-		if($(this).html() == "加入"){
-			$(this).parent().parent().trigger("click");
+function googleJoin() {
+    finish = false;
+    var clickArray = new Array();
+    $("div[role=button] content span").each(function () {
+	    if ($(this).html() == "加入" || $(this).html().toLowerCase() == "join" || $(this).html().toLowerCase() == "ask to join") {
+	        clickArray.push(this);
 		}
 	});
+	if (clickArray.length <= 0) {
+	    finish = true;
+	    return;
+	}
+	$(clickArray[Math.floor(Math.random() * (clickArray.length - 1) + 1)]).parent().parent().trigger("click");
+}
+/*google+关注*/
+function googleFollow() {
+    finish = false;
+    var clickArray = new Array();
+    $("div[role=button] content span").each(function () {
+        if ($(this).html().toLowerCase() == "follow") {
+            clickArray.push(this);
+        }
+    });
+    if (clickArray.length <= 0) {
+        finish = true;
+        return;
+    }
+    $(clickArray[Math.floor(Math.random() * (clickArray.length - 1) + 1)]).parent().parent().trigger("click");
 }
 /*twitter点赞*/
 function twitterClick(){
@@ -97,9 +119,14 @@ function stop(){
 /*执行任务*/
 function run(){
 	var comp_url = getDomainFromUrl(document.URL).toLowerCase();
-	if(comp_url == "plus.google.com"){
-		googleClick();
-		googleJoin();
+	if (comp_url == "plus.google.com") {
+	    if (document.URL.indexOf("communities/recommended") > 0) {
+	        googleJoin();
+	    } else if (document.URL.indexOf("collections/featured") > 0) {
+	        googleFollow();
+	    } else {
+	        googleClick();
+	    }
 	}else if(comp_url == "twitter.com"){
 		//twitterClick();
 		twitterFollow();
@@ -122,12 +149,18 @@ function refresh(){
 	if(finish){
 		finish_index = 0;
 		var comp_url = getDomainFromUrl(document.URL).toLowerCase();
-		if(comp_url == "plus.google.com"){
-			if($("div[role=banner] div[role=heading] div").eq(0).length>0){
-				$("div[role=banner] div[role=heading] div").eq(0).trigger("click");
-			}else{
-				location.reload();
-			}
+		if (comp_url == "plus.google.com") {
+		    if (document.URL.indexOf("communities/recommended") > 0) {
+		        location.reload();
+		    } else if (document.URL.indexOf("collections/featured") > 0) {
+		        location.reload();
+		    } else {
+		        if ($("div[role=banner] div[role=heading] div").eq(0).length > 0) {
+		            $("div[role=banner] div[role=heading] div").eq(0).trigger("click");
+		        } else {
+		            location.reload();
+		        }
+		    }
 		}else if(comp_url == "twitter.com"){
 			location.reload();
 		}else if(comp_url == "www.pinterest.com"){

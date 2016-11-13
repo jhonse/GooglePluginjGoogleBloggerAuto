@@ -3,6 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3EC2F8A-17F0-44F9-9D05-5A45209B0344}"
+	ProjectSection(SolutionItems) = preProject
+		jGoogleBloggerAuto\background.js = jGoogleBloggerAuto\background.js
+		jGoogleBloggerAuto\cnblogs_19.png = jGoogleBloggerAuto\cnblogs_19.png
+		jGoogleBloggerAuto\cnblogs_38.png = jGoogleBloggerAuto\cnblogs_38.png
+		jGoogleBloggerAuto\content_script.js = jGoogleBloggerAuto\content_script.js
+		jGoogleBloggerAuto\jquery-2.0.0.min.js = jGoogleBloggerAuto\jquery-2.0.0.min.js
+		jGoogleBloggerAuto\manifest.json = jGoogleBloggerAuto\manifest.json
+		jGoogleBloggerAuto\popup.css = jGoogleBloggerAuto\popup.css
+		jGoogleBloggerAuto\popup.html = jGoogleBloggerAuto\popup.html
+		jGoogleBloggerAuto\popup.js = jGoogleBloggerAuto\popup.js
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
